@@ -17,6 +17,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { PrincipalComponent } from './components/principal/principal.component';
+import { AgregarHotelComponent } from './components/agregar-hotel/agregar-hotel.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MatInputModule } from '@angular/material/input';
     LoginComponent,
     RegistroComponent,
     NavbarComponent,
-    ReservacionComponent
+    ReservacionComponent,
+    PrincipalComponent,
+    AgregarHotelComponent
   ],
   imports: [
     BrowserModule,

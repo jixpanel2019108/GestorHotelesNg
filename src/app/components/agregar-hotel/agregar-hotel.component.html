@@ -1,0 +1,4 @@
+<select class="form-select" aria-label="Default select example" [(ngModel)]="selectedCountry.id"> 
+<option *ngFor="let country of countries" value={{country.id}}>Open this select menu</option>
+{{country.name}}
+</select>
