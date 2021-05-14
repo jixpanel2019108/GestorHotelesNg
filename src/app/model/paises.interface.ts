@@ -1,10 +1,10 @@
 export interface CountryI {
-    id: number;
+    id: string;
     name: string;
 }
 
 export interface CityI{
     id:number;
-    country:number;
+    country:string;
     name:string;
 }
