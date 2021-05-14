@@ -5,6 +5,7 @@ import { Hotel } from '../../model/hotel.model';
 import { CountryI, CityI } from '../../model/paises.interface';
 import { DataService } from '../../services/data.service';
 import { Usuario } from 'src/app/model/usuario.model';
+import { HotelUsuario } from 'src/app/model/hotelUsuario.model';
  
 @Component({
   selector: 'app-agregar-hotel',
@@ -17,13 +18,15 @@ export class AgregarHotelComponent implements OnInit {
   public countries: CountryI[]
   public cities: CityI[]
   public token;
-  public hotelModel: Hotel;
+  public hotelModelAdd: Hotel;
   public usuarioModel: Usuario
+  public hotelUsuarioModel: HotelUsuario
 
   constructor(private _usuarioService: UsuarioService, private _hotelService: HotelService, private _dataService: DataService) { 
     this.token = this._usuarioService.getToken()
-    this.hotelModel = new Hotel("","","",'',0,"",0,'')
-    this.usuarioModel = new Usuario('','','','','','','','','','','','',''  )
+    this.hotelModelAdd = new Hotel("","","","",0,"",0,"")
+    this.usuarioModel = new Usuario('','','','','','','','','','','','','')
+    this.hotelUsuarioModel = new HotelUsuario('','','','','','','')
   }
 
   ngOnInit(): void {
@@ -36,14 +39,13 @@ export class AgregarHotelComponent implements OnInit {
   }
 
   agregarHotel(){
-    this._hotelService.registroHotel(this.hotelModel,this.usuarioModel,this.token).subscribe(
+    this._hotelService.registroHotel(this.hotelUsuarioModel,this.token).subscribe(
       response => {
         console.log(response);
-        console.log(response.hotelGuardado);
-        // this.hotelModel.nombre = "";
-        // this.hotelModel.pais = "";
-        // this.hotelModel.direccion = "";
         
+      },
+      error => {
+        console.log(<any>error);
       }
     )
   }

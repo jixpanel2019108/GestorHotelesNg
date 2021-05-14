@@ -1,4 +1,3 @@
-
 <body>
     <div class="container">
         <main>
@@ -7,32 +6,28 @@
                 </div>
                 <div class="col-md-7 col-lg-4">
                     <h4 class="mb-3">Registrar Hotel</h4>
-                    <form class="needs-validation">
+                    <form >
                         <div class="row g-3">
                             <div class="col-sm-12">
-                                <label for="inputNombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="hotelModel.nombre">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" #nombre="ngModel" [(ngModel)]="hotelUsuarioModel.nombre">
                             </div>
 
                             <div class="col-sm-12">
-                                <label for="address" class="form-label">Direccion</label>
-                                <input type="text" class="form-control" id="address" placeholder="Tu direccion" name="direccion" #direccion="ngModel" [(ngModel)]="hotelModel.direccion">
+                                <label for="direccion" class="form-label">Direccion</label>
+                                <input type="text" class="form-control" id="direccion" placeholder="Tu direccion" name="direccion" #direccion="ngModel" [(ngModel)]="hotelUsuarioModel.direccion">
                             </div>
 
                             <div class="col-sm-12">
-                                <label for="inputPais" class="form-label">Pais</label>
-                                <select class="form-select" id="inputPais" aria-label="Default select example" name="pais" #pais="ngModel" [(ngModel)]="selectedCountry.id" (change)='onSelect($event.target.value)'> 
+                                <label for="pais" class="form-label">Pais</label>
+                                <select class="form-select" id="pais" aria-label="Default select example" name="pais" #pais="ngModel" [(ngModel)]="hotelUsuarioModel.pais" (change)='onSelect($event.target.value)'> 
                                     <option *ngFor="let country of countries" value={{country.id}} >{{country.name}}</option>
                                 </select>
-                                <input  type="text" name="pais1" id="pais1" value={{hotelModel.nombre}}>
-                                <input  type="text" name="pais2" id="pais2" value={{hotelModel.direccion}}>
-                                <input  type="text" name="pais3" id="pais3" value={{hotelModel.pais}}>
-                                <input  type="text" name="pais4" id="pais4" value={{hotelModel.ciudad}}>
                             </div>
                             
                             <div class="col-sm-12">
-                                <label for="inputCiudad" class="form-label">Ciudad</label>
-                                <select class="form-select" id="inputCiudad" aria-label="Default select example" name="ciudad" #ciudad="ngModel" [(ngModel)]="hotelModel.ciudad" > 
+                                <label for="ciudad" class="form-label">Ciudad</label>
+                                <select class="form-select" id="ciudad" aria-label="Default select example" name="ciudad" #ciudad="ngModel" [(ngModel)]="hotelUsuarioModel.ciudad" > 
                                     <option *ngFor="let city of cities" value={{city.name}} >{{city.name}}</option>
                                 </select>
                             </div>
@@ -43,15 +38,15 @@
                         <h4 class="mb-3">Registrar Usuario</h4>
                             <div class="col-sm-12">
                                 <label for="inputUsuario" class="form-label">Usuario</label>
-                                <input type="text" class="form-control" id="inputUsuario" name="usuario" #usuario="ngModel" [(ngModel)]="usuarioModel.usuario" >
+                                <input type="text" class="form-control" id="inputUsuario" name="usuario" #usuario="ngModel" [(ngModel)]="hotelUsuarioModel.usuario" >
                             </div>
                             <div class="col-sm-12">
                                 <label for="inputCorreo" class="form-label">Correo</label>
-                                <input type="email" class="form-control" id="inputCorreo" name="correo" #correo="ngModel" [(ngModel)]="usuarioModel.correo" >
+                                <input type="email" class="form-control" id="inputCorreo" name="correo" #correo="ngModel" [(ngModel)]="hotelUsuarioModel.correo" >
                             </div>
                             <div class="col-sm-12">
                                     <label for="inputPassword" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="inputPassword" name="password" #password="ngModel" [(ngModel)]="usuarioModel.password" >
+                                    <input type="password" class="form-control" id="inputPassword" name="password" #password="ngModel" [(ngModel)]="hotelUsuarioModel.password" >
                             </div>
 
                         </div>

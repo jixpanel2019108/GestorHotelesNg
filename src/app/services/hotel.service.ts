@@ -4,6 +4,7 @@ import { GLOBAL } from './global.service';
 import { Observable } from 'rxjs';
 import { Hotel } from '../model/hotel.model';
 import { Usuario } from '../model/usuario.model';
+import { HotelUsuario } from '../model/hotelUsuario.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +18,15 @@ export class HotelService {
     this.url = GLOBAL.url
   }
 
-  registroHotel(hotel:Hotel, usuario:Usuario, token):Observable<any>{
-    let paramsUnidos = Object.assign(hotel, usuario);
-    let paramsJson = JSON.stringify(paramsUnidos)
-    console.log(paramsJson);
+  registroHotel(hotelUsuario:HotelUsuario, token):Observable<any>{
+    // console.log(hotel);
+    // let paramsUnidos = Object.assign(hotel, usuario);
+    // let paramsJson = JSON.stringify(paramsUnidos)
+    // console.log(paramsJson);
+    let params = JSON.stringify(hotelUsuario)
 
     let headersToken = this.headers.set('Authorization', token)  
-    return this._http.post(this.url + "/registrarHotel",paramsJson,{headers:headersToken})
+    return this._http.post(this.url + "/registrarHotel",params,{headers:headersToken})
   }
   
 
