@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GLOBAL} from "./global.service"
 import { Usuario } from '../model/usuario.model';
-import {Observable} from "rxjs" //2 Importo para puder usar el observable en la funcion
+import {BehaviorSubject, Observable} from "rxjs" //2 Importo para puder usar el observable en la funcion
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 @Injectable({
@@ -13,6 +13,8 @@ export class UsuarioService {
   public headersVariable = new HttpHeaders().set('Content-type','application/json')
   public identidad;
   public token;
+  user: Usuario;
+
   //2Instancio en el contructor
   constructor(public _http: HttpClient) { 
     this.url = GLOBAL.url
@@ -56,5 +58,7 @@ export class UsuarioService {
     }
     return this.token;
   }
+
+
 
 }

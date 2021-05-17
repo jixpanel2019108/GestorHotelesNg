@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       response => {
         this.token = response.token;
         localStorage.setItem('token',this.token)
+
       },
       error=> {
         console.log(<any>error);
@@ -41,11 +42,14 @@ export class LoginComponent implements OnInit {
         this.identidad = response.usuarioEncontrado;
         localStorage.setItem('identidad', JSON.stringify(this.identidad))
         this.getToken()
+        // this._router.navigateByUrl('/navbar',{ skipLocationChange: true });
         if (this.identidad.rol == 'ROL_USUARIO'){
           this._router.navigate(['/principal'])
+
         }else if (this.identidad.rol == 'ROL_ADMIN'){
           this._router.navigate(['/registro'])
         }
+        
       },
       error => {
         Swal.fire(

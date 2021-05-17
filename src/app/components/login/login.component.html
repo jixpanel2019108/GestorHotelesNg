@@ -2,7 +2,7 @@
     <form (ngSubmit)="login()">
 
         <div class="form-group text-center">
-            <img src="img/logoLogin.png" height="40" width="120" />
+            <!-- <img src="img/logoLogin.png" height="40" width="120" /> -->
             <br><br>
             <h3>Acceder</h3>
         </div>
@@ -17,7 +17,7 @@
             <label>Password:</label>
             <input class="form-control" type="password" name="txtCorreo" placeholder="Ingrese su contraseña" name="pass" #pass="ngModel" [(ngModel)]="usuarioModel.password">
         </div>
-        <br>
+        <a class="text-center" routerLink='/registro'>¿No tienes cuenta? registrate</a>
         <input class="btn btn-primary btn-block" type="submit" name="accion" value="Ingresar">
 
     </form>
