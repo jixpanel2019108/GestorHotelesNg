@@ -1,0 +1,78 @@
+<body>
+    <div class="container">
+        <main>
+            <div class="row g-5" style="padding-top: 50px;">
+                <div class="col-md-5 col-lg-4 order-md-last">
+                </div>
+                <div class="col-md-7 col-lg-4">
+                    <h4 class="mb-3">Registrar Evento</h4>
+                    <form >
+                        <div class="row g-3">
+                            <div class="col-sm-12">
+                                <label for="hotel" class="form-label">Hotel</label>
+                                <select class="form-select" id="hotel" aria-label="Default select example" name="hotel" #hotel="ngModel" [(ngModel)]="eventoModel.hotel"> 
+                                    <option *ngFor="let hoteles of hotelModelGet" value={{hoteles._id}} >{{hoteles.nombre}}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label for="evento" class="form-label">Evento</label>
+                                <input type="text" class="form-control" id="evento" name="evento" #evento="ngModel" [(ngModel)]="eventoModel.evento">
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label for="fecha" class="form-label">Fecha</label>
+                                <mat-form-field class="col-12">
+                                    <input matInput [matDatepicker]="picker" placeholder="Fecha del Evento" name="fecha" #fecha="ngModel" [(ngModel)]="eventoModel.fecha">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label for="tipoEvento" class="form-label">Tipo de Evento</label>
+                                <select class="form-select" id="tipoEvento" aria-label="Default select example" name="tipoEvento" #tipoEvento="ngModel" [(ngModel)]="eventoModel.tipoEvento"> 
+                                    <option *ngFor="let tipoE of tiposModelGet" value={{tipoE._id}} >{{tipoE.tipo}}</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modalAgregarTipoEvento">Agregar Categoria Evento</button>
+
+
+                            
+                        </div>
+
+                        <hr class="my-4">
+                        
+                        <button class="w-100 btn btn-primary btn-lg" type="button" (click)='agregarEvento()'>Registrar Evento</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+<!-- Modal AGREGAR ENCUESTA -->
+<div class="modal fade" id="modalAgregarTipoEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Categoria de Evento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Categoria de Evento</label>
+                        <input type="text" class="form-control" id="tipo" name="tipo" #tipo="ngModel" [(ngModel)]="tipoEventoModelAdd.tipo">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="agregarTipoEvento()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+                    

@@ -18,6 +18,10 @@ export class HotelService {
     this.url = GLOBAL.url
   }
 
+  obtenerHoteles(): Observable<any>{
+    return this._http.get(this.url + '/obtenerHoteles',{headers:this.headers})
+  }
+
   registroHotel(hotelUsuario:HotelUsuario, token):Observable<any>{
     // console.log(hotel);
     // let paramsUnidos = Object.assign(hotel, usuario);
@@ -28,6 +32,8 @@ export class HotelService {
     let headersToken = this.headers.set('Authorization', token)  
     return this._http.post(this.url + "/registrarHotel",params,{headers:headersToken})
   }
+
+
   
 
 }
