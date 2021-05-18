@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Evento } from '../model/evento.model';
-import { Hotel } from '../model/hotel.model';
-import { TipoEvento } from '../model/tipoEvento.model';
-import { EventoService } from '../services/evento.service';
-import { HotelService } from '../services/hotel.service';
-import { UsuarioService } from '../services/usuario.service';
+import { Evento } from '../../model/evento.model';
+import { Hotel } from '../../model/hotel.model';
+import { TipoEvento } from '../../model/tipoEvento.model';
+import { EventoService } from '../../services/evento.service';
+import { HotelService } from '../../services/hotel.service';
+import { UsuarioService } from '../../services/usuario.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 

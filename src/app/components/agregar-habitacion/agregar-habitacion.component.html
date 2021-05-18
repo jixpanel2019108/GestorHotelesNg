@@ -1,0 +1,47 @@
+<body>
+    <div class="container">
+        <main>
+            <div class="row g-5" style="padding-top: 50px;">
+                <div class="col-md-5 col-lg-4 order-md-last">
+                </div>
+                <div class="col-md-7 col-lg-4">
+                    <h4 class="mb-3">Registrar Habitación</h4>
+                    <form >
+                        <div class="row g-3">
+                            <div class="col-sm-12">
+                                <label for="hotel" class="form-label">Hotel</label>
+                                <select class="form-select" id="hotel" aria-label="Default select example" name="hotel" #hotel="ngModel" [(ngModel)]="habitacionModelAdd.hotel"> 
+                                    <option *ngFor="let hoteles of hotelModelGet" value={{hoteles._id}} >{{hoteles.nombre}}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Nombre de la Habitación</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" #nombre="ngModel" [(ngModel)]="habitacionModelAdd.nombre">
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label for="tipo" class="form-label">Tipo de Habitación</label>
+                                <input type="text" class="form-control" id="tipo" name="tipo" #tipo="ngModel" [(ngModel)]="habitacionModelAdd.tipo">
+                            </div>
+                            
+                            <div class="col-sm-12">
+                                <label for="precio" class="form-label">Precio por noche</label>
+                                <input type="text" class="form-control" id="precio" name="precio" #precio="ngModel" [(ngModel)]="habitacionModelAdd.precio">
+                            </div>
+
+                            
+                            
+                        </div>
+
+                        <hr class="my-4">
+                        
+                        <button class="w-100 btn btn-primary btn-lg" type="button" (click)='agregarHabitacion()'>Registrar Habitación</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+                    

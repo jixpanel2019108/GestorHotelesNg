@@ -19,7 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { AgregarHotelComponent } from './components/agregar-hotel/agregar-hotel.component';
-import { AgregarEventoComponent } from './agregar-evento/agregar-evento.component';
+import { AgregarEventoComponent } from './components/agregar-evento/agregar-evento.component';
+import { AgregarHabitacionComponent } from './components/agregar-habitacion/agregar-habitacion.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AgregarEventoComponent } from './agregar-evento/agregar-evento.componen
     ReservacionComponent,
     PrincipalComponent,
     AgregarHotelComponent,
-    AgregarEventoComponent
+    AgregarEventoComponent,
+    AgregarHabitacionComponent
   ],
   imports: [
     BrowserModule,

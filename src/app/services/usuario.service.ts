@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GLOBAL} from "./global.service"
 import { Usuario } from '../model/usuario.model';
-import {BehaviorSubject, Observable} from "rxjs" //2 Importo para puder usar el observable en la funcion
+import { Observable} from "rxjs" //2 Importo para puder usar el observable en la funcion
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 @Injectable({
