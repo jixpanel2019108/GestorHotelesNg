@@ -6,6 +6,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { AgregarHotelComponent } from './components/agregar-hotel/agregar-hotel.component';
 import { AgregarEventoComponent } from './components/agregar-evento/agregar-evento.component';
 import { AgregarHabitacionComponent } from './components/agregar-habitacion/agregar-habitacion.component';
+import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
   {path: 'agregar-hotel', component: AgregarHotelComponent},
   {path: 'agregar-evento', component: AgregarEventoComponent},
-  {path: 'agregar-habitacion', component: AgregarHabitacionComponent}
+  {path: 'agregar-habitacion', component: AgregarHabitacionComponent},
+  {path: 'agregar-servicio', component: AgregarServicioComponent}
 ];
 
 @NgModule({

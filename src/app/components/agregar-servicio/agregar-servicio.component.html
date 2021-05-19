@@ -1,0 +1,47 @@
+<body>
+    <div class="container">
+        <main>
+            <div class="row g-5" style="padding-top: 50px;">
+                <div class="col-md-5 col-lg-4 order-md-last">
+                </div>
+                <div class="col-md-7 col-lg-4">
+                    <h4 class="mb-3">Registrar Servicio</h4>
+                    <form >
+                        <div class="row g-3">
+                            <div class="col-sm-12">
+                                <label for="hotel" class="form-label">Hotel</label>
+                                <select class="form-select" id="hotel" aria-label="Default select example" name="hotel" #hotel="ngModel" [(ngModel)]="servicioModelAdd.hotel"> 
+                                    <option *ngFor="let hoteles of hotelModelGet" value={{hoteles._id}} >{{hoteles.nombre}}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label for="servicio" class="form-label">Nombre del Servicio</label>
+                                <input type="text" class="form-control" id="servicio" name="servicio" #servicio="ngModel" [(ngModel)]="servicioModelAdd.servicio">
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label for="descripcion" class="form-label">Descripcion del Servicio</label>
+                                <input type="text" class="form-control" id="descripcion" name="descripcion" #descripcion="ngModel" [(ngModel)]="servicioModelAdd.descripcion">
+                            </div>
+                            
+                            <div class="col-sm-12">
+                                <label for="precio" class="form-label">Precio</label>
+                                <input type="text" class="form-control" id="precio" name="precio" #precio="ngModel" [(ngModel)]="servicioModelAdd.precio">
+                            </div>
+
+                            
+                            
+                        </div>
+
+                        <hr class="my-4">
+                        
+                        <button class="w-100 btn btn-primary btn-lg" type="button" (click)='agregarServicio()'>Registrar Servicio</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+                    
