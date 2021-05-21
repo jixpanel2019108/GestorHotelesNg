@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+//PADRE
+import { Component, OnInit  } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../model/usuario.model';
 import Swal from 'sweetalert2'
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   public identidad
 
   constructor(private _usuarioService: UsuarioService, private _router:Router) {
-    this.usuarioModel = new Usuario ("","","","","","","","","","","","","")
+    this.usuarioModel = new Usuario ("","","","","","","","","","","","","","")
    }
 
   ngOnInit(): void {
@@ -42,14 +43,13 @@ export class LoginComponent implements OnInit {
         this.identidad = response.usuarioEncontrado;
         localStorage.setItem('identidad', JSON.stringify(this.identidad))
         this.getToken()
-        // this._router.navigateByUrl('/navbar',{ skipLocationChange: true });
+        
         if (this.identidad.rol == 'ROL_USUARIO'){
           this._router.navigate(['/principal'])
 
         }else if (this.identidad.rol == 'ROL_ADMIN'){
           this._router.navigate(['/registro'])
         }
-        
       },
       error => {
         Swal.fire(

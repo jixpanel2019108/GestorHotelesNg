@@ -15,7 +15,7 @@
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="inputNombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioModelAdd.nombre" required>
+                                <input type="text" class="form-control" id="inputNombre" placeholder="Tu Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioModelAdd.nombre" required>
                             </div>
 
                             <div class="col-sm-6">
@@ -70,12 +70,18 @@
                                 <label for="zip" class="form-label">Codigo Postal</label>
                                 <input type="text" class="form-control" id="zip" placeholder="">
                             </div>
+                            <div class="col-6">
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input type="text" class="form-control" id="telefono" placeholder="Tu Telefono" name="telefono" #telefono="ngModel" [(ngModel)]="usuarioModelAdd.telefono">
+                            </div>
 
-                            <mat-form-field class="col-5">
+                            <mat-form-field class="col-6">
                                 <input matInput [matDatepicker]="picker" placeholder="Escoge tu nacimiento" name="fecha" #fecha="ngModel" [(ngModel)]="usuarioModelAdd.nacimiento">
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
+
+                            
 
                         </div>
                         <hr class="my-4">

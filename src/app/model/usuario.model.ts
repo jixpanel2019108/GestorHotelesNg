@@ -9,6 +9,7 @@ export class Usuario {
         public apellido: String,
         public nacimiento: String,
         public direccion: String,
+        public telefono: String,
         public pais: String,
         public ciudad: String,
         public imagen: String,

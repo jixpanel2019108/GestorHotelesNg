@@ -33,6 +33,9 @@ export class HotelService {
     return this._http.post(this.url + "/registrarHotel",params,{headers:headersToken})
   }
 
+  obtenerHotelesPais(id: String):Observable<any>{
+    return this._http.get(this.url+'/obtenerHotelesPais/'+id,{headers: this.headers})
+  }
 
   
 

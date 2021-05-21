@@ -25,7 +25,7 @@ export class AgregarHotelComponent implements OnInit {
   constructor(private _usuarioService: UsuarioService, private _hotelService: HotelService, private _dataService: DataService) { 
     this.token = this._usuarioService.getToken()
     this.hotelModelAdd = new Hotel("","","","",0,"",0,"")
-    this.usuarioModel = new Usuario('','','','','','','','','','','','','')
+    this.usuarioModel = new Usuario('','','','','','','','','','','','','','')
     this.hotelUsuarioModel = new HotelUsuario('','','','','','','')
   }
 

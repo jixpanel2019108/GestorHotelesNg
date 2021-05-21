@@ -1,0 +1,21 @@
+<div class="container">
+<br>
+
+    <h1> Aqui informacion del hotel</h1>
+<br>
+    <div class="col-xs-12 col-sm-4" *ngFor="let habitacionesNGF of habitacionModelGet; let i = index">
+        <div class="card mb-3">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+            <h5 class="card-title">{{habitacionesNGF.nombre}}</h5>
+            <p class="card-text">{{habitacionesNGF.tipo}}</p>
+            <p class="card-text">{{habitacionesNGF.precio}}</p>
+            <!-- <button type="button" class="btn btn-primary" [routerLink]="['/habitaciones-hotel',hotelesNGF._id]"><i class="bi bi-info-square">Reservacion</i></button> -->
+            <button type="button" class="btn btn-primary" routerLink="/reservacion"><i class="bi bi-info-square">Reservacion</i></button>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HACER MODAL EN PRINCIPAL -->

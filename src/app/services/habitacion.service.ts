@@ -21,4 +21,9 @@ export class HabitacionService {
 
     return this._http.post(this.url+'/registrarHabitacion',params,{headers: headersToken})
   }
+
+  obtenerHabitacionesPorHotel(id, token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.get(this.url+'/obtenerHabitacionesPorHotel/'+id,{headers:headersToken})
+  }
 }

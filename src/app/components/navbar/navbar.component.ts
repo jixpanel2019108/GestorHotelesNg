@@ -1,3 +1,4 @@
+//HIJO
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 
@@ -18,5 +19,4 @@ export class NavbarComponent implements OnInit {
     console.log(this.identidad);
     
   }
-
 }

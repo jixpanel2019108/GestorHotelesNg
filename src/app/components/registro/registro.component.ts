@@ -12,7 +12,7 @@ export class RegistroComponent implements OnInit {
 
   public usuarioModelAdd: Usuario
   constructor(private _usuarioService: UsuarioService) {
-    this.usuarioModelAdd = new Usuario("","","","","","","","","","","","","")
+    this.usuarioModelAdd = new Usuario("","","","","","","","","","","","","","")
    }
 
   ngOnInit(): void {

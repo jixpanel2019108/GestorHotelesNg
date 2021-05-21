@@ -1,1 +1,16 @@
-<p>principal works!</p>
+<div class='container'>
+    <div class="col-3" *ngFor='let hot of hotelModelGet'>
+
+            <label for="exampleFormControlInput1" class="form-label">{{hotCiudad}}</label>
+            <div class="card mb-8">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h5 class="card-title">{{hot.pais}}</h5>
+                    <p class="card-text">Paises de {{hot.pais}}</p>
+                    <button type="button" class="btn btn-primary" [routerLink]="['/hoteles-pais',hot.pais]"><i class="bi bi-info-square"></i></button>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            
+    </div>    
+</div>

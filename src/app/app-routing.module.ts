@@ -7,15 +7,21 @@ import { AgregarHotelComponent } from './components/agregar-hotel/agregar-hotel.
 import { AgregarEventoComponent } from './components/agregar-evento/agregar-evento.component';
 import { AgregarHabitacionComponent } from './components/agregar-habitacion/agregar-habitacion.component';
 import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
+import { HotelesPaisComponent } from './components/hoteles-pais/hoteles-pais.component';
+import { HabitacionesHotelComponent } from './components/habitaciones-hotel/habitaciones-hotel.component';
+import { ReservacionComponent } from './components/reservacion/reservacion.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path: 'registro', component: RegistroComponent},
+  {path: 'reservacion', component: ReservacionComponent},
   {path: 'principal', component: PrincipalComponent},
   {path: 'agregar-hotel', component: AgregarHotelComponent},
   {path: 'agregar-evento', component: AgregarEventoComponent},
   {path: 'agregar-habitacion', component: AgregarHabitacionComponent},
-  {path: 'agregar-servicio', component: AgregarServicioComponent}
+  {path: 'agregar-servicio', component: AgregarServicioComponent},
+  {path: 'hoteles-pais/:idPais', component: HotelesPaisComponent},
+  {path: 'habitaciones-hotel/:idHotel', component: HabitacionesHotelComponent},
 ];
 
 @NgModule({
