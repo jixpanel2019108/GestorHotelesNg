@@ -23,7 +23,7 @@ export class AgregarHabitacionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.habitacionModelAdd = new Habitacion('','','','','','')
+    this.habitacionModelAdd = new Habitacion('','','','','',[{checkIn:new Date(),checkOut:new Date()}],'')
     this.obtenerHoteles()
   }
 
@@ -59,4 +59,5 @@ export class AgregarHabitacionComponent implements OnInit {
     )
   }
 
+  
 }

@@ -4,22 +4,32 @@ import { HotelService } from 'src/app/services/hotel.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import * as _ from 'lodash'
 import { ActivatedRoute } from '@angular/router';
+import { ReservacionService } from 'src/app/services/reservacion.service';
+import { Reservacion } from 'src/app/model/reservacion.model';
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.scss'],
-  providers: [HotelService, UsuarioService]
+  providers: [HotelService, UsuarioService, ReservacionService]
 })
 export class PrincipalComponent implements OnInit {
   public token
   public hotelModelGet: Hotel
   public hotelModelCiudad: Hotel
   public hotelesArray
+  public idPais
+  public idUsuario
+  public identidad
+  public reservacionModelAdd: Reservacion
+
   // public idHotel: String
 
 
-  constructor(private _hotelService: HotelService, private _usuarioService: UsuarioService) { 
+  constructor(private _hotelService: HotelService, private _usuarioService: UsuarioService,private _reservacionService: ReservacionService) { 
     this.token = this._usuarioService.getToken()
+    this.identidad = this._usuarioService.getIdentidad();
+    this.reservacionModelAdd = new Reservacion('','',new Date(),new Date(),0,0,[{nombre:'',cantidad:0,idServicio:''}],
+    '','','','','','','','','',new Date(),0)
   }
 
   ngOnInit(): void {
@@ -33,25 +43,26 @@ export class PrincipalComponent implements OnInit {
         this.hotelModelGet = response.hotelesEncontrados
         console.log(response);
         this.hotelModelCiudad= this.hotelModelGet
-        // this.hotelModelCiudad = _.groupBy(this.hotelModelCiudad, 'pais')
-        
-        // this.hotelesArray = Object.values(this.hotelModelCiudad)
-        
         console.log(this.hotelModelCiudad);
-        console.log(this.hotelesArray);
       },err =>{
         console.log(<any>err);
       }
     )
   }
 
+  agregarChekInOut(){
+    this._reservacionService.agregarChekInOut(this.reservacionModelAdd,this.identidad._id,this.token).subscribe(
+      response => {
+        console.log(response);
+      },err =>{
+        console.log(<any>err);
+      }
+    )
+  }
 
-
-
-  // navegarHotelesPais(){
-  //   this._router.navigate(['/hotel-pais',id])
-  // }
-
-  //TODO: TENGO QUE ARREGLAR LO DE LA RUTA DE PRINCIPAL A HOTELES POR PAIS
+  obteneridPais(idPais){
+    this.idPais = idPais
+    console.log(this.idPais);
+  }
 
 }

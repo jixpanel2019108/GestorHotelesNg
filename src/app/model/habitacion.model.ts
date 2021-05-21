@@ -5,6 +5,7 @@ export class Habitacion{
         public nombre: String,
         public precio: String,
         public estado: String,
+        public diasReservados:[{checkIn: Date, checkOut: Date}],
         public hotel: String
     ){}
 }
