@@ -29,7 +29,7 @@ export class HabitacionesHotelComponent implements OnInit {
   obtenerHabitacionesPorHotel(idHotel){
     this._habitacionService.obtenerHabitacionesPorHotel(idHotel, this.token).subscribe(
       response => {
-        this.habitacionModelGet = response.habitacionesEncontradas
+        this.habitacionModelGet = response.habitacionesEncontradas2
         console.log(response);
       }
     )
