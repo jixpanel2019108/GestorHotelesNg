@@ -20,4 +20,11 @@ export class ReservacionService {
 
     return this._http.put(this.url+'/agregarChekInOut/'+idUsuario,params,{headers: headersToken})
   }
+
+  reservarHabitacion(reservacionModel: Reservacion, idHabitacion, token){
+    let headersToken = this.headers.set('Authorization', token)
+    let params = JSON.stringify(reservacionModel)
+
+    return this._http.put(this.url+'/reservarHabitacion/'+ idHabitacion, params, {headers: headersToken})
+  }
 }

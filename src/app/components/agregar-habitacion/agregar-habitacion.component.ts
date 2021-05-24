@@ -24,7 +24,7 @@ export class AgregarHabitacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.habitacionModelAdd = new Habitacion('','','','','',[{checkIn:new Date(),checkOut:new Date()}],'')
-    this.obtenerHoteles()
+    this.obtenerHotelesAll()
   }
 
   agregarHabitacion(){
@@ -48,8 +48,8 @@ export class AgregarHabitacionComponent implements OnInit {
     )
   }
 
-  obtenerHoteles(){
-    this._hotelService.obtenerHoteles().subscribe(
+  obtenerHotelesAll(){
+    this._hotelService.obtenerHotelesAll().subscribe(
       response =>{
         this.hotelModelGet = response.hotelesEncontrados
         console.log(response);

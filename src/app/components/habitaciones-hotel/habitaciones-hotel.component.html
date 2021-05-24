@@ -10,8 +10,9 @@
             <h5 class="card-title">{{habitacionesNGF.nombre}}</h5>
             <p class="card-text">{{habitacionesNGF.tipo}}</p>
             <p class="card-text">{{habitacionesNGF.precio}}</p>
+            <p class="card-text">{{habitacionesNGF._id}}</p>
             <!-- <button type="button" class="btn btn-primary" [routerLink]="['/habitaciones-hotel',hotelesNGF._id]"><i class="bi bi-info-square">Reservacion</i></button> -->
-            <button type="button" class="btn btn-primary" routerLink="/reservacion"><i class="bi bi-info-square">Reservacion</i></button>
+            <button type="button" class="btn btn-primary" [routerLink]="['/detalle-habitacion',habitacionesNGF._id]"><i class="bi bi-info-square">Detalle</i></button>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>

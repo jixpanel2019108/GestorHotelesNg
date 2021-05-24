@@ -24,6 +24,9 @@ import { AgregarHabitacionComponent } from './components/agregar-habitacion/agre
 import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
 import { HotelesPaisComponent } from './components/hoteles-pais/hoteles-pais.component';
 import { HabitacionesHotelComponent } from './components/habitaciones-hotel/habitaciones-hotel.component';
+import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { HabitacionesHotelComponent } from './components/habitaciones-hotel/habi
     AgregarHabitacionComponent,
     AgregarServicioComponent,
     HotelesPaisComponent,
-    HabitacionesHotelComponent
+    HabitacionesHotelComponent,
+    DetalleHabitacionComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { HabitacionesHotelComponent } from './components/habitaciones-hotel/habi
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule 
+    MatInputModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

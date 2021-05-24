@@ -26,4 +26,14 @@ export class HabitacionService {
     let headersToken = this.headers.set('Authorization', token)
     return this._http.get(this.url+'/obtenerHabitacionesPorHotel/'+id,{headers:headersToken})
   }
+
+  obtenerHabitacionId(idHabitacion, token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.get(this.url+'/obtenerHabitacionId/'+idHabitacion,{headers: headersToken})
+  }
+  
+  obtenerHabitacionesTrue(idHabitacion, token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.get(this.url+'/obtenerHabitacionesTrue/'+idHabitacion,{headers: headersToken})
+  }
 }

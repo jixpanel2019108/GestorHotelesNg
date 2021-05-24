@@ -21,6 +21,9 @@ export class HotelService {
   obtenerHoteles(): Observable<any>{
     return this._http.get(this.url + '/obtenerHoteles',{headers:this.headers})
   }
+  obtenerHotelesAll(): Observable<any>{
+    return this._http.get(this.url + '/obtenerHotelesAll',{headers:this.headers})
+  }
 
   registroHotel(hotelUsuario:HotelUsuario, token):Observable<any>{
     // console.log(hotel);
@@ -37,6 +40,10 @@ export class HotelService {
     return this._http.get(this.url+'/obtenerHotelesPais/'+id,{headers: this.headers})
   }
 
-  
+  obtenerHotelNombre(hotelNombre: Hotel, token): Observable<any>{
+    let params = JSON.stringify(hotelNombre)
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.post(this.url+'/obtenerHotelNombre',params,{headers: headersToken})
+  }
 
 }

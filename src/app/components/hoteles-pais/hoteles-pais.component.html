@@ -8,7 +8,7 @@
             <div class="card-body">
             <h5 class="card-title">{{hotelesNGF.nombre}}</h5>
             <p class="card-text">{{hotelesNGF.direccion}}</p>
-            <button type="button" class="btn btn-primary" [routerLink]="['/habitaciones-hotel',hotelesNGF._id]"><i class="bi bi-info-square"></i></button>
+            <button type="button" class="btn btn-primary" [routerLink]="['/habitaciones-hotel',hotelesNGF._id]" (click)='obtenerHabitacionesPorHotel(hotelesNGF._id)'><i class="bi bi-info-square"></i></button>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>

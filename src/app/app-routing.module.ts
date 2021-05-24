@@ -10,11 +10,12 @@ import { AgregarServicioComponent } from './components/agregar-servicio/agregar-
 import { HotelesPaisComponent } from './components/hoteles-pais/hoteles-pais.component';
 import { HabitacionesHotelComponent } from './components/habitaciones-hotel/habitaciones-hotel.component';
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
+import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path: 'registro', component: RegistroComponent},
-  {path: 'reservacion', component: ReservacionComponent},
+  {path: 'reservacion/:idHabitacion', component: ReservacionComponent},
   {path: 'principal', component: PrincipalComponent},
   {path: 'agregar-hotel', component: AgregarHotelComponent},
   {path: 'agregar-evento', component: AgregarEventoComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'agregar-servicio', component: AgregarServicioComponent},
   {path: 'hoteles-pais/:idPais', component: HotelesPaisComponent},
   {path: 'habitaciones-hotel/:idHotel', component: HabitacionesHotelComponent},
+  {path: 'detalle-habitacion/:idHabitacion', component: DetalleHabitacionComponent}
 ];
 
 @NgModule({

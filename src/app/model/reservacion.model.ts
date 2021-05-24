@@ -17,7 +17,7 @@ export class Reservacion {
         public correoPersona: String,
         public telefonoPersona: String,
         public nombreTarjeta:String,
-        public numeroTarjetoa:String,
+        public numeroTarjeta:String,
         public exp: String,
         public cvv: String,
         public fecha: Date,

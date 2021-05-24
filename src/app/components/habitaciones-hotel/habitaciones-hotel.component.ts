@@ -24,12 +24,22 @@ export class HabitacionesHotelComponent implements OnInit {
       this.idHotelHabitacion = dataRuta.get('idHotel');
     })
     this.obtenerHabitacionesPorHotel(this.idHotelHabitacion)
+    this.obtenerHabitacionesTrue()
   }
 
   obtenerHabitacionesPorHotel(idHotel){
     this._habitacionService.obtenerHabitacionesPorHotel(idHotel, this.token).subscribe(
       response => {
-        this.habitacionModelGet = response.habitacionesEncontradas2
+        // this.habitacionModelGet = response.habitacionesEncontradas2
+        console.log(response);
+      }
+    )
+  }
+
+  obtenerHabitacionesTrue(){
+    this._habitacionService.obtenerHabitacionesTrue(this.idHotelHabitacion,this.token).subscribe(
+      response => {
+        this.habitacionModelGet = response.habitacionesTrue
         console.log(response);
       }
     )
