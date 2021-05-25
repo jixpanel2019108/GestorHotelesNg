@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('identidad', JSON.stringify(this.identidad))
         this.getToken()
         
+        
         if (this.identidad.rol == 'ROL_USUARIO'){
           this._router.navigate(['/principal'])
 
@@ -59,6 +60,11 @@ export class LoginComponent implements OnInit {
         )
       }
     )
+    
+  }
+
+  refresh(): void{
+    window.location.reload();
   }
 
 }

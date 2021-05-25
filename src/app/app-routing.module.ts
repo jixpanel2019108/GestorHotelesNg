@@ -11,6 +11,7 @@ import { HotelesPaisComponent } from './components/hoteles-pais/hoteles-pais.com
 import { HabitacionesHotelComponent } from './components/habitaciones-hotel/habitaciones-hotel.component';
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
 import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -23,7 +24,9 @@ const routes: Routes = [
   {path: 'agregar-servicio', component: AgregarServicioComponent},
   {path: 'hoteles-pais/:idPais', component: HotelesPaisComponent},
   {path: 'habitaciones-hotel/:idHotel', component: HabitacionesHotelComponent},
-  {path: 'detalle-habitacion/:idHabitacion', component: DetalleHabitacionComponent}
+  {path: 'detalle-habitacion/:idHabitacion', component: DetalleHabitacionComponent},
+  {path: 'usuarios', component: UsuariosComponent},
+  { path: '**', component: PrincipalComponent}
 ];
 
 @NgModule({

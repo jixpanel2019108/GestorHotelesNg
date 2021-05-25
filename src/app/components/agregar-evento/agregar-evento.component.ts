@@ -68,7 +68,7 @@ export class AgregarEventoComponent implements OnInit {
   }
   
   obtenerHoteles(){
-    this._hotelService.obtenerHoteles().subscribe(
+    this._hotelService.obtenerHotelesAll().subscribe(
       response =>{
         this.hotelModelGet = response.hotelesEncontrados
         console.log(response);

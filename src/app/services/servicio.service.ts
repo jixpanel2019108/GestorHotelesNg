@@ -22,4 +22,11 @@ export class ServicioService {
     return this._http.post(this.url+'/agregarServicio',params,{headers: headersToken})
   }
 
+  obtenerServiciosHotel(idHotel, token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.get(`${this.url}/obtenerServiciosHotel/${idHotel}`,{headers:headersToken})
+  }
+  
+
+
 }

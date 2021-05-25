@@ -35,4 +35,9 @@ export class EventoService {
     return this._http.post(this.url+'/registrarTipoEvento', params, {headers:headersToken})
   }
 
+  obtenerEventosIdHotel(idHotel, token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.get(`${this.url}/obtenerEventosIdHotel/${idHotel}`,{headers:headersToken})
+  }
+
 }

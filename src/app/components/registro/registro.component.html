@@ -51,31 +51,29 @@
 
 
 
-                            <div class="col-md-5">
-                                <label for="country" class="form-label">Pais</label>
-                                <select class="form-select" id="country" name="pais" #pais="ngModel" [(ngModel)]="usuarioModelAdd.pais">
-                                    <option value="">Choose...</option>
-                                    <option>Guatemala</option>
-                                    </select>
+                            <div class="col-6"  >
+                                <label for="pais" class="form-label">Pais</label>
+                                <select class="form-select" id="pais" aria-label="Default select example" name="pais" #pais="ngModel" [(ngModel)]="usuarioModelAdd.pais" (change)='onSelect($event.target.value)'> 
+                                    <option *ngFor="let country of countries" value={{country.id}} >{{country.name}}</option>
+                                </select>
                             </div>
-                            <div class="col-md-4">
-                                <label for="state" class="form-label">Ciudad</label>
-                                <select class="form-select" id="state" name="ciudad" #ciudad="ngModel" [(ngModel)]="usuarioModelAdd.ciudad">
-                                    <option value="">Choose...</option>
-                                    <option>Guatemala</option>
+                            <div class="col-6"  >
+                                <label for="ciudad" class="form-label">Ciudad</label>
+                                <select class="form-select" id="ciudad" aria-label="Default select example" name="ciudad" #ciudad="ngModel" [(ngModel)]="usuarioModelAdd.ciudad" > 
+                                    <option *ngFor="let city of cities" value={{city.name}} >{{city.name}}</option>
                                 </select>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-12 col-sm-4">
                                 <label for="zip" class="form-label">Codigo Postal</label>
                                 <input type="text" class="form-control" id="zip" placeholder="">
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-sm-4">
                                 <label for="telefono" class="form-label">Telefono</label>
                                 <input type="text" class="form-control" id="telefono" placeholder="Tu Telefono" name="telefono" #telefono="ngModel" [(ngModel)]="usuarioModelAdd.telefono">
                             </div>
 
-                            <mat-form-field class="col-6">
+                            <mat-form-field class="col-12 col-sm-4">
                                 <input matInput [matDatepicker]="picker" placeholder="Escoge tu nacimiento" name="fecha" #fecha="ngModel" [(ngModel)]="usuarioModelAdd.nacimiento">
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
