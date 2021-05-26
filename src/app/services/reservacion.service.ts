@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Reservacion } from '../model/reservacion.model';
 import { GLOBAL } from './global.service';
 
@@ -14,17 +15,41 @@ export class ReservacionService {
     this.url = GLOBAL.url
   }
 
-  agregarChekInOut(reservacionModel:Reservacion ,idUsuario , token){
+  agregarChekInOut(reservacionModel:Reservacion ,idUsuario , token): Observable<any>{
     let headersToken = this.headers.set('Authorization', token)
     let params = JSON.stringify(reservacionModel)
 
     return this._http.put(this.url+'/agregarChekInOut/'+idUsuario,params,{headers: headersToken})
   }
 
-  reservarHabitacion(reservacionModel: Reservacion, idHabitacion, token){
+  reservarHabitacion(reservacionModel: Reservacion, idHabitacion, token): Observable<any>{
     let headersToken = this.headers.set('Authorization', token)
     let params = JSON.stringify(reservacionModel)
 
     return this._http.put(this.url+'/reservarHabitacion/'+ idHabitacion, params, {headers: headersToken})
+  }
+
+  agregarServiciosReservacion(idServicio, token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.put(this.url+'/agregarServiciosReservacion/'+idServicio,{},{headers:headersToken})
+  }
+  
+  obtenerServiciosReservacion(token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.get(this.url+'/obtenerServiciosReservacion',{headers:headersToken})
+  }
+  eliminarServicioReservacion(idServicio, token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.put(this.url+'/eliminarServicioReservacion/'+idServicio,{},{headers:headersToken})
+  }
+
+  actualizarTotal(token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.post(this.url+'/actualizarTotal',{},{headers:headersToken})
+  }
+  
+  agregarPrecio(idHabitacion, token):Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.put(this.url+'/agregarPrecio/'+idHabitacion,{},{headers:headersToken})
   }
 }

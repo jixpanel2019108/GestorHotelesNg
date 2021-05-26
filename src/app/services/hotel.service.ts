@@ -51,4 +51,21 @@ export class HotelService {
     return this._http.get(this.url+'/obtenerHotelId/'+idHotel,{headers: headersToken})
   }
 
+  adminObtenerHoteles(token):Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.get(this.url+'/adminObtenerHoteles', {headers: headersToken})
+  }
+
+  adminEditarHotel(idHotel, token): Observable<any> {
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.put(this.url+'/adminEditarHotel/'+idHotel,{},{headers:headersToken})
+  }
+
+  adminEliminarHotel(idHotel, token): Observable<any> {
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.delete(this.url+'/adminEliminarHotel/'+idHotel,{headers:headersToken})
+  }
+
+
+
 }

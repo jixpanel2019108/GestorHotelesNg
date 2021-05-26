@@ -1,40 +1,86 @@
-<div class='container'>
-  <form class="form-inline my-2 my-lg-0">
-    <input type="text" class="form-control" id="nombre" placeholder="Hotel" name="nombre" #nombre="ngModel" [(ngModel)]="hotelModelNombre.nombre">
-
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker2" placeholder="CheckIn" name="checkIn" #checkIn="ngModel" [(ngModel)]="reservacionModelAdd.checkIn">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker3" placeholder="CheckOut" name="checkOut" #checkOut="ngModel" [(ngModel)]="reservacionModelAdd.checkOut">
-      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-      <mat-datepicker #picker3></mat-datepicker>
-    </mat-form-field>
-
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"  (click)='agregarChekInOutSearch()'>Search</button>
-  </form>
 
 
+  <br> <br>
+  <div class="container">
+    <div *ngIf='identidad.rol == "ROL_ADMIN"'>
+      <h2>Agregar</h2> <hr>
+      <button type="button" class="btn btn-success"style="margin: 20px;" routerLink ="/agregar-hotel">Agregar Hotel</button>
+      <button type="button" class="btn btn-success"style="margin: 20px;" routerLink ="/agregar-habitacion">Agregar Habitacion</button>
+      <button type="button" class="btn btn-success"style="margin: 20px;" routerLink ="/agregar-servicio">Agregar Servicio</button>
+      <button type="button" class="btn btn-success"style="margin: 20px;" routerLink ="/agregar-evento">Agregar Evento</button>
+      <br> <br>
+      <h2>Ver, Editar y Eliminar</h2> <hr>
+      <button type="button" class="btn btn-primary"style="margin: 20px;" routerLink ="/usuarios">Usuarios</button>
+      <button type="button" class="btn btn-primary"style="margin: 20px;" routerLink ="/hoteles">Hoteles</button>
+    </div>
+  </div>
 
-    <div class="col-3" *ngFor='let hot of hotelModelGet'>
+  <div class="container">
+    <div *ngIf='identidad.rol == "ROL_ADMIN_HOTEL"'>
+      <button type="button" class="btn btn-secondary"style="margin: 20px;" routerLink ="/agregar-habitacion">Agregar Habitacion</button>
+      <button type="button" class="btn btn-secondary"style="margin: 20px;" routerLink ="/agregar-servicio">Agregar Servicio</button>
+      <button type="button" class="btn btn-secondary"style="margin: 20px;" routerLink ="/agregar-evento">Agregar Evento</button>
+    </div>
+  </div>
+  
 
-            <label for="exampleFormControlInput1" class="form-label">{{hotCiudad}}</label>
-            <div class="card mb-8">
-                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                <div class="card-body">
-                    <h5 class="card-title">{{hot}}</h5>
-                    <p class="card-text">Paises de {{hot}}</p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)=(obteneridPais(hot))>
-                        Ver Hoteles
-                    </button>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>    
-    </div>   
+
+
+
+<div class='container' style="margin-bottom: 200px;">
+
+<br> <br> <br>
+    <form class="form-inline my-2 my-lg-0">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-auto">
+          <input type="text" class="form-control" id="nombre" placeholder="Hotel" name="nombre" #nombre="ngModel" [(ngModel)]="hotelModelNombre.nombre">
+
+        </div>
+        <div class="col-3">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker2" placeholder="CheckIn" name="checkIn" #checkIn="ngModel" [(ngModel)]="reservacionModelAdd.checkIn">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker3" placeholder="CheckOut" name="checkOut" #checkOut="ngModel" [(ngModel)]="reservacionModelAdd.checkOut">
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-success " type="submit"  (click)='agregarChekInOutSearch()'>Search</button>
+  
+        </div>
+      </div>
+      
+      
+    </div>
+    </form>
+
+      <div class="col-3" *ngFor='let hot of hotelModelGet'>
+  
+              <label for="exampleFormControlInput1" class="form-label">{{hotCiudad}}</label>
+              <div class="card mb-8">
+                  <div class="card-body">
+                      <h5 class="card-title">{{hot}}</h5>
+                      <p class="card-text">hoteles de {{hot}}</p>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)=(obteneridPais(hot))>
+                          Ver Hoteles
+                      </button>
+                  </div>
+              </div>
+          </div>
+    </div>
+
+    <!-- <div class="container" *ngFor='let hot of hotelModelGet'>
+      <h2>Paises de {{hot}}</h2> <hr>
+
+    </div> -->
+
     
 
   <!-- Modal -->

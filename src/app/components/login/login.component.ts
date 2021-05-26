@@ -45,12 +45,8 @@ export class LoginComponent implements OnInit {
         this.getToken()
         
         
-        if (this.identidad.rol == 'ROL_USUARIO'){
-          this._router.navigate(['/principal'])
-
-        }else if (this.identidad.rol == 'ROL_ADMIN'){
-          this._router.navigate(['/registro'])
-        }
+        this._router.navigate(['/principal'])
+        window.location.replace('http://localhost:4200/principal');
       },
       error => {
         Swal.fire(

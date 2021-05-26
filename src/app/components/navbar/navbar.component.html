@@ -1,22 +1,22 @@
 <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
     <div class="container">
         <a routerLink='/principal' class="navbar-brand">
-            <!-- Logo Image -->
-            <img src="https://media.discordapp.net/attachments/833808504766070846/837368544697122816/Icono_3.png" width="45" alt="" class="d-inline-block align-middle mr-2">
-            <!-- Logo Text -->
-            <span class=" font-weight-bold">RoundTrip</span>
+            <img src="https://media.discordapp.net/attachments/695021143957962867/846990609474256906/Logosss.png" width="45" alt="" class="d-inline-block align-middle mr-2">
+            <span class=" font-weight-bold" style="color: whitesmoke;">Travel Trip</span>
         </a>
 
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
 
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" routerLink="/login" routerLinkActive="active">Login<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/registro" routerLinkActive="active">Registrar Usuario</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/agregar-hotel" routerLinkActive="active">Registrar Hotel</a></li>
+            <ul class="navbar-nav ml-auto nav-pills">
+                <li class="nav-item" *ngIf='!identidad'><button class="btn btn-info" routerLink="/login" routerLinkActive="active">Login</button></li>
+                <!-- <li class="nav-item"><a class="nav-link" routerLink="/registro" routerLinkActive="active">Registrar Usuario</a></li> -->
+                <li class="nav-item" *ngIf='identidad.rol == "ROL_ADMIN"'><button class="btn btn-danger" routerLink="/login" (click)='cerrarSesion()'>Cerrar Sesión</button>    </li>
+                <li class="nav-item" *ngIf='identidad.rol == "ROL_ADMIN_HOTEL"'><button class="btn btn-danger" routerLink="/login" (click)='cerrarSesion()'>Cerrar Sesión</button>  </li>
+                <li class="nav-item" *ngIf='identidad.rol == "ROL_USUARIO"'><button class="btn btn-danger" routerLink="/login" (click)='cerrarSesion()'>Cerrar Sesión</button></li>
                 
-                <li class="nav-item active">
-                    <a class="nav-link" *ngIf="identidad; else btnLogin">{{identidad.usuario}}</a>
+                <li class="nav-item active" *ngIf="identidad.rol != ''; else btnLogin" style="margin-left: 20px;">
+                        <button type="button" class="btn btn-primary">{{identidad.usuario}}</button>
                 </li>
                 <ng-template #btnLogin>
                     <button type="button" class="btn btn-outline-info" routerLink='/login'>Login</button>
@@ -25,3 +25,4 @@
         </div>
     </div>
 </nav>
+

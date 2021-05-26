@@ -30,15 +30,32 @@ export class PrincipalComponent implements OnInit {
 
   constructor(private _hotelService: HotelService, private _usuarioService: UsuarioService,private _reservacionService: ReservacionService,
     private _router: Router) { 
+    
+
     this.token = this._usuarioService.getToken()
     this.identidad = this._usuarioService.getIdentidad();
-    this.reservacionModelAdd = new Reservacion('','',new Date(),new Date(),0,0,[{nombre:'',cantidad:0,idServicio:''}],
+    this.reservacionModelAdd = new Reservacion('','',new Date(),new Date(),0,0,[{nombre:'', precio:0,cantidad:0,idServicio:''}],
     '','','','','','','','','',new Date(),0)
     this.hotelModelNombre = new Hotel('','','','',0,'',0,'')
+    
   }
 
   ngOnInit(): void {
     this.obtenerHoteles()
+    console.log(this.token);
+    console.log(this.identidad);
+
+    if (this.identidad === null){
+      this.identidad = new Object()
+      this.identidad.rol = ''
+      console.log(this.identidad.rol);
+    }
+
+    // if(this.token == '' || this.token == null){
+    //   this._router.navigate(['/carga'])
+    // }else{
+    //   this._router.navigate(['/principal'])
+    // }
   }
 
   obtenerHoteles(){
@@ -48,6 +65,7 @@ export class PrincipalComponent implements OnInit {
         console.log(response);
         this.hotelModelCiudad= this.hotelModelGet
         console.log(this.hotelModelCiudad);
+        
       },err =>{
         console.log(<any>err);
       }

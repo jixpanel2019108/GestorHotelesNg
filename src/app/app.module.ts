@@ -26,6 +26,9 @@ import { HotelesPaisComponent } from './components/hoteles-pais/hoteles-pais.com
 import { HabitacionesHotelComponent } from './components/habitaciones-hotel/habitaciones-hotel.component';
 import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CargaComponent } from './components/carga/carga.component';
+import { HotelesComponent } from './components/hoteles/hoteles.component';
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     HotelesPaisComponent,
     HabitacionesHotelComponent,
     DetalleHabitacionComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    FooterComponent,
+    CargaComponent,
+    HotelesComponent
   ],
   imports: [
     BrowserModule,

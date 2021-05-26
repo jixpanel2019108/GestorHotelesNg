@@ -17,6 +17,16 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.identidad);
-    
+    if (this.identidad === null){
+      this.identidad = new Object()
+      this.identidad.rol = ''
+      console.log(this.identidad.rol);
+    }
+  }
+
+  cerrarSesion(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('identidad');
+    window.location.replace('http://localhost:4200/login')
   }
 }

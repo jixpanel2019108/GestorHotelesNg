@@ -1,0 +1,125 @@
+
+<div class="conteiner" style='margin-bottom: 300px;'>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Pais</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let hot of hotelModelGet">
+                <td>{{hot.nombre}}</td>
+                <td>{{hot.pais}}</td>
+                <td>{{hot.ciudad}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-primary" (click)="obtenerHotelId(hot._id)" data-bs-toggle="modal" data-bs-target="#modalEditarHotel">Editar</button>
+                        <button type="button" class="btn btn-primary" (click)="obtenerHotelId(hot._id)" data-bs-toggle="modal" data-bs-target="#modalEliminarHotel">Eliminar</button>
+                        <button type="button" class="btn btn-primary" (click)="obtenerHotelId(hot._id)" data-bs-toggle="modal" data-bs-target="#modalVerHotel">Ver</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- MODAL EDITAR -->
+<div class="modal fade" id="modalEditarHotel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Hotel</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <form >
+                    <div class="mb-3" >
+                        <label for="inputNomrbe" class="form-label">Nombre</label>
+                        <input type="text " class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="hotelId.nombre">
+                    </div>
+                    <div class="col-sm-12"  >
+                        <label for="pais" class="form-label">Pais</label>
+                        <select class="form-select" id="pais" aria-label="Default select example" name="pais" #pais="ngModel" [(ngModel)]="hotelId.pais" (change)='onSelect($event.target.value)'> 
+                            <option *ngFor="let country of countries" value={{country.id}} >{{country.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12"  >
+                        <label for="ciudad" class="form-label">Ciudad</label>
+                        <select class="form-select" id="ciudad" aria-label="Default select example" name="ciudad" #ciudad="ngModel" [(ngModel)]="hotelId.ciudad" > 
+                            <option *ngFor="let city of cities" value={{city.name}} >{{city.name}}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3" >
+                        <label for="inputDireccion" class="form-label">Direccion</label>
+                        <input type="text " class="form-control" id="inputDireccion" name="direccion" #direccion="ngModel" [(ngModel)]="hotelId.direccion">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="adminEditarHotel()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Eliminar Usuario -->
+<div class="modal fade " id="modalEliminarHotel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de que desea eliminar el usuario {{hotelId.nombre}}?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="adminEliminarHotel(hotelId._id)">Si, eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL READ -->
+<div class="modal fade" id="modalVerHotel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3" >
+                        <label for="inputNomrbe" class="form-label">Nombre</label>
+                        <input type="text " class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="hotelId.nombre" disabled>
+                    </div>
+                    <div class="mb-3" >
+                        <label for="inputNomrbe" class="form-label">Pais</label>
+                        <input type="text " class="form-control" id="inputNombre" name="pais" #pais="ngModel" [(ngModel)]="hotelId.pais" disabled>
+                    </div>
+                    <div class="mb-3" >
+                        <label for="inputNomrbe" class="form-label">Ciudad</label>
+                        <input type="text " class="form-control" id="inputNombre" name="ciudad" #ciudad="ngModel" [(ngModel)]="hotelId.ciudad" disabled>
+                    </div>
+                    <div class="mb-3" >
+                        <label for="inputNomrbe" class="form-label">Direccion</label>
+                        <input type="text " class="form-control" id="inputNombre" name="direccion" #direccion="ngModel" [(ngModel)]="hotelId.direccion" disabled>
+                    </div>
+                                       
+                    
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

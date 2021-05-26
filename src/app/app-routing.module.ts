@@ -12,11 +12,14 @@ import { HabitacionesHotelComponent } from './components/habitaciones-hotel/habi
 import { ReservacionComponent } from './components/reservacion/reservacion.component';
 import { DetalleHabitacionComponent } from './components/detalle-habitacion/detalle-habitacion.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { CargaComponent } from './components/carga/carga.component';
+import { HotelesComponent } from './components/hoteles/hoteles.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'reservacion/:idHabitacion', component: ReservacionComponent},
+  // {path: 'reservacion/:idHabitacion/:idHotel', component: ReservacionComponent},
   {path: 'principal', component: PrincipalComponent},
   {path: 'agregar-hotel', component: AgregarHotelComponent},
   {path: 'agregar-evento', component: AgregarEventoComponent},
@@ -26,6 +29,8 @@ const routes: Routes = [
   {path: 'habitaciones-hotel/:idHotel', component: HabitacionesHotelComponent},
   {path: 'detalle-habitacion/:idHabitacion', component: DetalleHabitacionComponent},
   {path: 'usuarios', component: UsuariosComponent},
+  {path: 'hoteles', component: HotelesComponent},
+  {path: 'carga', component: CargaComponent},
   { path: '**', component: PrincipalComponent}
 ];
 

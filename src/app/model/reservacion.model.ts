@@ -8,6 +8,7 @@ export class Reservacion {
         public noches: Number,
         public servicios:[{
             nombre: String,
+            precio: Number,
             cantidad: Number,
             idServicio: String
         }],

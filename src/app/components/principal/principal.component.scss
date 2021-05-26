@@ -22,3 +22,20 @@
 }
 
 ::ng-deep .cdk-overlay-container {     z-index:2000; }
+
+.main-bg::after{
+    background-color: #fef5e4;
+-webkit-border-radius: 0 0 233px 135px;
+-moz-border-radius: 0 0 233px 135px;
+border-radius: 0 0 233px 135px;
+content: "";
+position: absolute;
+right: -119px;
+top: -93px;
+background-color: #fef5e4;
+width: 466px;
+height: 595px;
+-webkit-transform: rotate(45deg);
+transform: rotate(116deg);
+z-index: -2;
+}
