@@ -19,6 +19,7 @@ export class HotelesPaisComponent implements OnInit {
   constructor(private _hotelService: HotelService, private _usuarioService: UsuarioService, public _habitacionService: HabitacionService,
     public _activatedRoute: ActivatedRoute) { 
     this.token = this._usuarioService.getToken();
+    console.log(this.token);
   }
 
   ngOnInit(): void {

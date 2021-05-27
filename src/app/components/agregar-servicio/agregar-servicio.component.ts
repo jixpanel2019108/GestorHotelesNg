@@ -4,6 +4,7 @@ import { Servicio } from 'src/app/model/servicio.model';
 import { HotelService } from 'src/app/services/hotel.service';
 import { ServicioService } from 'src/app/services/servicio.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agregar-servicio',
@@ -40,6 +41,11 @@ export class AgregarServicioComponent implements OnInit {
     this._servicioService.agregarServicio(this.servicioModelAdd, this.token).subscribe(
       response =>{
         console.log(response);
+        Swal.fire(
+          'Servicio con éxito',
+          'Servicio Guardado',
+          'success'
+        )
       },err =>{
         console.log(<any>err);
       }

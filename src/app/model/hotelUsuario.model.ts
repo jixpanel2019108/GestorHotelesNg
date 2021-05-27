@@ -6,6 +6,7 @@ export class HotelUsuario {
         public direccion: String,
         public usuario: String,
         public correo: String,
-        public password: String
+        public password: String,
+        public imagen: String
     ){}
 }

@@ -7,9 +7,14 @@
                 <h2>Reservación de la habitación {{habitacionModelGet.nombre}}</h2>
                 <p class="lead">Por favor ingrese todos los datos que se le solicitan, para poder completar la reservación. Puede agregar los servicios que desee utilizar durante su estadía</p>
             </div>
+            <!-- <button class='btn btn-primary' (click)='openPdfStyle()'></button> -->
 
             <div class="row g-5">
                 <div class="col-md-5 col-lg-4 order-md-last">
+                    <h4 class="mb-3">CheckIn:</h4>
+                    <input class='d-flex justify-content-between align-items-center mb-3'type="text" value="{{reservacionModelGet.checkIn | date}}"disabled>
+                    <h4 class="mb-3">CheckOut:</h4>
+                    <input class='d-flex justify-content-between align-items-center mb-3'type="text" value="{{reservacionModelGet.checkOut | date}}"disabled>
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Servicios</span>
                         <span class="badge bg-primary "><i class="bi bi-bell"></i></span>
@@ -48,7 +53,7 @@
                                 <div class="form">
                                     <h6 class="my-0">{{ser.nombre}}</h6>
                                     <small class="text-muted">Q {{ser.precio}}</small> <br>
-                                    <button class="btn btn-danger " type="submit" (click)='eliminarServicioReservacion(ser.idServicio)'> <i class="bi bi-trash"></i></button>
+                                    <button class="btn btn-danger btn-close" type="submit" (click)='eliminarServicioReservacion(ser.idServicio)'></button>
 
                                 </div><!-- *form-check-->
                             </li>
@@ -183,7 +188,7 @@
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit" (click)='reservarHabitacion(idHabitacion)'>Rerservar</button>
+                        <button class="w-100 btn btn-primary btn-lg" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)='reservarHabitacion(idHabitacion)'>Rerservar</button>
                     </form>
                 </div>
             </div>
@@ -191,6 +196,50 @@
 
         
     </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="container">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Factura: {{habitacionModelGet.nombre}}</h5>
+              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">
+                <div class="text-right">{{facturaGet.fecha | date}}</div>
+                <strong>Reserador:</strong>
+                {{facturaGet.nombrePersona}}<hr>
+                <strong>Check In:</strong>
+                {{facturaGet.checkIn | date:"MM/dd/yy"}}
+                <strong>Check Out:</strong>
+                {{facturaGet.checkOut | date:"MM/dd/yy"}}<hr>
+                <strong>Habitacion:</strong>
+                {{habitacionModelGet.precio}}
+                <strong>Noches:</strong>
+                {{facturaGet.noches}}<hr>
+                
+            </div>
+            <div class="container">
+                <div *ngFor="let ser of servicioModelGet; let i = index">
+                            <div class="">{{ser.servicio}}</div>
+                            <small class="text-muted text-right">Q {{ser.precio}}</small> <br>
+                </div>
+            </div><!-- *ngFor-->
+            <hr>
+            <div class="text-right">{{facturaGet.total}}</div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+            <button class='btn btn-primary' (click)='openPdfStyle()'>PDF</button>
+              
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" routerLink='/principal'>Listo</button>
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

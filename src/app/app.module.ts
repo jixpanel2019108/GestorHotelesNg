@@ -29,6 +29,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CargaComponent } from './components/carga/carga.component';
 import { HotelesComponent } from './components/hoteles/hoteles.component';
+import { HistorialComponent } from './components/historial/historial.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { HotelesComponent } from './components/hoteles/hoteles.component';
     UsuariosComponent,
     FooterComponent,
     CargaComponent,
-    HotelesComponent
+    HotelesComponent,
+    HistorialComponent
   ],
   imports: [
     BrowserModule,

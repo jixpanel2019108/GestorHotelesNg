@@ -38,6 +38,10 @@ export class ReservacionService {
     let headersToken = this.headers.set('Authorization', token)
     return this._http.get(this.url+'/obtenerServiciosReservacion',{headers:headersToken})
   }
+  obtenerServiciosFactura(token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.get(this.url+'/obtenerServiciosFactura',{headers:headersToken})
+  }
   eliminarServicioReservacion(idServicio, token): Observable<any>{
     let headersToken = this.headers.set('Authorization', token)
     return this._http.put(this.url+'/eliminarServicioReservacion/'+idServicio,{},{headers:headersToken})
@@ -51,5 +55,20 @@ export class ReservacionService {
   agregarPrecio(idHabitacion, token):Observable<any>{
     let headersToken = this.headers.set('Authorization', token)
     return this._http.put(this.url+'/agregarPrecio/'+idHabitacion,{},{headers:headersToken})
+  }
+  
+  agregarFactura(token): Observable<any>{
+    let headersToken = this.headers.set('Authorization', token)
+    return this._http.put(this.url+'/agregarFactura',{},{headers:headersToken})
+  }
+  
+  obtenerFacturasUsuario(token): Observable<any>{
+    let headersToken = this.headers.set('Authorization',token)
+    return this._http.get(this.url+'/obtenerFacturasUsuario',{headers: headersToken})
+  }
+  
+  obtenerHotelHabitacion(idHabitacion,token):Observable<any>{
+    let headersToken = this.headers.set('Authorization',token)
+    return this._http.get(this.url+'/obtenerHotelHabitacion/'+idHabitacion,{headers: headersToken})
   }
 }

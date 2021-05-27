@@ -1,5 +1,10 @@
 
-
+<div class="banner">
+  <div class="banner__content">
+      <h2 class="banner__title">El Lugar Perfecto Para Elegir tu Hotel <span class="color-span"></span></h2>
+      <!-- <p class="banner__txt">ELIGE TU NINTENDO SWITCH</p> -->
+  </div>
+</div>
   <br> <br>
   <div class="container">
     <div *ngIf='identidad.rol == "ROL_ADMIN"'>
@@ -30,6 +35,7 @@
 <div class='container' style="margin-bottom: 200px;">
 
 <br> <br> <br>
+<h1>Busca Hotel Por Nombre</h1> <hr> <br>
     <form class="form-inline my-2 my-lg-0">
     <div class="container">
       <div class="row justify-content-md-center">
@@ -61,7 +67,7 @@
     </div>
     </form>
 
-      <div class="col-3" *ngFor='let hot of hotelModelGet'>
+      <!-- <div class="col-3" *ngFor='let hot of hotelModelGet'>
   
               <label for="exampleFormControlInput1" class="form-label">{{hotCiudad}}</label>
               <div class="card mb-8">
@@ -74,14 +80,26 @@
                   </div>
               </div>
           </div>
-    </div>
+    </div> -->
 
     <!-- <div class="container" *ngFor='let hot of hotelModelGet'>
       <h2>Paises de {{hot}}</h2> <hr>
 
     </div> -->
-
-    
+    <br> <br> <br>
+<h1>Hoteles de todos los paises</h1> <hr> <br>
+    <section class="container-tips" >
+  <div class="container-box" *ngFor='let hot of hotelModelGet'>
+      <div class="box">
+          <div class="box__icon" (click)=(obteneridPais(hot)) data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="https://image.flaticon.com/icons/png/512/4763/4763163.png" style="width: 98%;"  class="box__img"></div>
+          <div class="box__content">
+              <h3 class="box__title">{{hot}}</h3><hr class="red-line">
+              <p class="box__txt">Encontraras todos los hoteles de {{hot}}
+              </p>
+          </div>
+      </div>
+  </div>
+  </section>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
@@ -105,8 +123,9 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         
+          
         
-          <mat-form-field>
+          <mat-form-field style='margin-left: 30px;'>
             <input matInput [matDatepicker]="picker1" placeholder="CheckOut" name="checkOut" #checkOut="ngModel" [(ngModel)]="reservacionModelAdd.checkOut">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
@@ -126,7 +145,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" [routerLink]="['/hoteles-pais',idPais]" (click)='agregarChekInOut()'><i class="bi bi-info-square"></i>Ir</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" [routerLink]="['/hoteles-pais',idPais]" (click)='agregarChekInOut()'>Ir</button>
         </div>
       </div>
     </div>

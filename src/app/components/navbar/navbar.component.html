@@ -16,11 +16,12 @@
                 <li class="nav-item" *ngIf='identidad.rol == "ROL_USUARIO"'><button class="btn btn-danger" routerLink="/login" (click)='cerrarSesion()'>Cerrar Sesión</button></li>
                 
                 <li class="nav-item active" *ngIf="identidad.rol != ''; else btnLogin" style="margin-left: 20px;">
-                        <button type="button" class="btn btn-primary">{{identidad.usuario}}</button>
+                        <button type="button" class="btn btn-primary" routerLink='/historial'>{{identidad.usuario}}</button>
                 </li>
                 <ng-template #btnLogin>
                     <button type="button" class="btn btn-outline-info" routerLink='/login'>Login</button>
                 </ng-template> 
+                <a routerLink='/historial' *ngIf="identidad.rol == 'ROL_USUARIO'"><img src="{{identidad.imagen}}" class="nav-item active" style="border-radius: 50%; width: 50px; height: 50px; margin-left: 20px;"></a>
             </ul>
         </div>
     </div>

@@ -14,6 +14,7 @@ import { DetalleHabitacionComponent } from './components/detalle-habitacion/deta
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { CargaComponent } from './components/carga/carga.component';
 import { HotelesComponent } from './components/hoteles/hoteles.component';
+import { HistorialComponent } from './components/historial/historial.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -30,7 +31,7 @@ const routes: Routes = [
   {path: 'detalle-habitacion/:idHabitacion', component: DetalleHabitacionComponent},
   {path: 'usuarios', component: UsuariosComponent},
   {path: 'hoteles', component: HotelesComponent},
-  {path: 'carga', component: CargaComponent},
+  {path: 'historial', component: HistorialComponent},
   { path: '**', component: PrincipalComponent}
 ];
 

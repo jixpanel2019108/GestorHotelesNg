@@ -5,6 +5,7 @@ import { DataService } from 'src/app/services/data.service';
 import { HotelService } from 'src/app/services/hotel.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+
 @Component({
   selector: 'app-hoteles',
   templateUrl: './hoteles.component.html',
@@ -55,8 +56,9 @@ export class HotelesComponent implements OnInit {
     )
   }
 
-  adminEditarHotel(){
-    this._hotelService.adminEditarHotel(this.hotelId,this.token).subscribe(
+  adminEditarHotel(id){
+    console.log(id);
+    this._hotelService.adminEditarHotel(id,this.hotelId,this.token ).subscribe(
       response => {
         console.log(response);
         this.adminObtenerHoteles()
@@ -65,7 +67,7 @@ export class HotelesComponent implements OnInit {
   }
 
   adminEliminarHotel(idHotel){
-    this._hotelService.adminEliminarHotel(idHotel,this.token).subscribe(
+    this._hotelService.adminEliminarHotel(idHotel,this.hotelId).subscribe(
       response=>{
         console.log(response);
         this.adminObtenerHoteles()

@@ -57,6 +57,10 @@
                         <label for="inputNomrbe" class="form-label">Direccion</label>
                         <input type="text " class="form-control" id="inputNombre" name="direccion" #direccion="ngModel" [(ngModel)]="idUsuarioModel.direccion">
                     </div>
+                    <div class="mb3" *ngIf="idUsuarioModel.rol == 'ROL_USUARIO'">
+                        <label for="imagen" class="form-label">Imagen</label>
+                        <input type="text" class="form-control" id="imagen" placeholder="Tu imagen" name="imagen" #imagen="ngModel" [(ngModel)]="idUsuarioModel.imagen">
+                    </div>
 
                     <div class="col-sm-12"  *ngIf="idUsuarioModel.rol == 'ROL_USUARIO'">
                         <label for="pais" class="form-label">Pais</label>
@@ -110,6 +114,7 @@
             </div>
             <div class="modal-body">
                 <form>
+                    <img src="{{idUsuarioModel.imagen}}" style="border-radius: 50%; height: 100px; width: 100px;">
                     <div class="mb-3" *ngIf="idUsuarioModel.rol == 'ROL_USUARIO'">
                         <label for="inputNomrbe" class="form-label">Nombre</label>
                         <input type="text " class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="idUsuarioModel.nombre" disabled>

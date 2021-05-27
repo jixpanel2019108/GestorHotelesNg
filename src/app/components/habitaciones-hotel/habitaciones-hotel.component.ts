@@ -26,6 +26,7 @@ export class HabitacionesHotelComponent implements OnInit {
   constructor(private _usuarioService: UsuarioService, private _habitacionService: HabitacionService, private _hotelService: HotelService,
     private _eventoService: EventoService, private _servicioService: ServicioService, private _activatedRoute:ActivatedRoute ) {
     this.token = this._usuarioService.getToken()
+    console.log(this.token);
     this.hotelModelGet = new Hotel('','','','',0,'',0,'')
    }
 
