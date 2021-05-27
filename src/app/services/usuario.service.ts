@@ -91,4 +91,9 @@ eliminarUsuarioUsuario(): Observable<any>{
   return this._http.delete(this.url+'/eliminarUsuario',{headers:headersToken})
 }
 
+obtenerUsuarioIdUsuario(): Observable<any>{
+  let headersToken = this.headersVariable.set('Authorization', this.getToken())
+  return this._http.get(this.url+'/obtenerUsuarioIdUsuario', {headers:headersToken})
+}
+
 }

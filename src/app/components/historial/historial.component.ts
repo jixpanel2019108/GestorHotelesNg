@@ -24,17 +24,21 @@ export class HistorialComponent implements OnInit {
   public facturaActuallizada
   public identidad
   public usuarioModelAdd: Usuario
+  public usuarioObtenido: Usuario
 
   constructor(private _usuarioService: UsuarioService, private _reservacionService: ReservacionService, private _dataService: DataService, private _router:Router) { 
     this.token = this._usuarioService.getToken()
     this.identidad = this._usuarioService.getIdentidad();
     this.usuarioModelAdd = new Usuario("","","","","","","","","","","","","","")
+    this.usuarioObtenido = new Usuario("","","","","","","","","","","","","","")
     this.usuarioModelAdd = this._usuarioService.getIdentidad()
+    
   }
 
   ngOnInit(): void {
     this.obtenerFacturasUsuario()
     // this.obtenerServiciosFactura()
+    this.obtenerUsuarioIdUsuario()
     this.countries = this._dataService.getCountries()
   }
 
@@ -62,6 +66,7 @@ export class HistorialComponent implements OnInit {
     this._usuarioService.editarUsuarioUsuario(this.usuarioModelAdd).subscribe(
       response => {
         console.log(response);
+        this.obtenerUsuarioIdUsuario()
     })
   }
 
@@ -96,6 +101,15 @@ export class HistorialComponent implements OnInit {
       response => {
         console.log(response);
         this.facturaActuallizada = response.reservacionTotalActualizada
+      }
+    )
+  }
+
+  obtenerUsuarioIdUsuario(){
+    this._usuarioService.obtenerUsuarioIdUsuario().subscribe(
+      response => {
+        console.log(response);
+        this.usuarioObtenido = response.usuarioEncontrado
       }
     )
   }
